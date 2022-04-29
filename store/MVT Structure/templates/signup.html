@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-4">
+    
+    <div class="p-3 m-6">
+
+        
+        <div class="col-lg-5 rounded mx-auto border pt-10">
+            <div class="text-center col">
+            
+                <img 
+                src="https://images-platform.99static.com//IfMNVgqrW-tazVgq0o3e2u-gmp8=/271x245:1749x1723/fit-in/500x500/99designs-contests-attachments/112/112138/attachment_112138805" alt=""
+                class="" style="height: 170px;">
+            <!-- <hr> -->
+            <div class="display-8">Don't Have an Account? Signup</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm" 
+                     placeholder="John">
+                    </div>
+                </div>
+
+                <!-- last name -->
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm"
+                    placeholder="Doe">
+                    </div>
+                </div>
+
+                <!-- phone -->
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">phone</label>
+                    <div class="col-sm-10">
+                    <input type="text" name="phone" 
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="725693">
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="example@gmail.com">
+                    </div>
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm" placeholder="********">
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input class="btn btn-outline-success justify-content-center" type="submit" value="Create An Account ">
+                </div>
+
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
